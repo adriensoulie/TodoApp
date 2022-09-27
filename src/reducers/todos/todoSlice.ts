@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store/store';
 import { Todo } from '../../types/types';
-import { getTodos } from '../../utils/getTodos';
+import { getTodos, postTodo } from '../../utils/todoUtils';
 
 export interface TodosState {
     todos: Todo[];
@@ -15,11 +15,12 @@ const initialState: TodosState = {
 
 
 export const fetchAllTodos = createAsyncThunk(
-  'counter/fetchCount',
+  'todos/fetchTodos',
   async () => {
     return getTodos()
   }
 );
+
 
 export const todoSlice = createSlice({
   name: 'todos',
@@ -31,6 +32,7 @@ export const todoSlice = createSlice({
             title: action.payload.title,
             completed: action.payload.completed
         }
+        postTodo(newTodo)
         state.todos.push(newTodo);
     },
     updateTitleTodo: (state, action ) => {

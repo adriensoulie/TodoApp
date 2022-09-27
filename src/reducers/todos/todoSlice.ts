@@ -33,6 +33,9 @@ export const todoSlice = createSlice({
         }
         state.todos.push(newTodo);
     },
+    updateTitleTodo: (state, action ) => {
+      state.todos = state.todos.map((todo) => todo.id === action.payload.id ? {...todo, title: action.payload.title} : todo)
+    },
     updateCompleteTodo: (state, action) => {
       state.todos = state.todos.map((todo) => todo.id === action.payload ? {...todo, completed: !todo.completed} : todo)
     },
@@ -55,7 +58,7 @@ export const todoSlice = createSlice({
   }
 });
 
-export const { addTodo, removeTodo, updateCompleteTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, updateCompleteTodo, updateTitleTodo } = todoSlice.actions;
 
 export const selectTodos = (state: RootState) => state.todos;
 

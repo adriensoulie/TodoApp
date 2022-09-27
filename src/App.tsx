@@ -5,10 +5,12 @@ import Todo from "./components/Todo";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, fetchAllTodos } from "./reducers/todos/todoSlice";
 import { AppDispatch } from "./store/store";
+import { useState } from "react";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();
   const todos = useSelector((state: RootState) => state.todos.todos);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     dispatch(fetchAllTodos());
@@ -16,17 +18,37 @@ function App() {
 
   console.log(todos);
 
-  function fakeAdd() {
+  const submit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    if (value.trim().length === 0) {
+      setValue("");
+      return;
+    }
+
     dispatch(
-      addTodo({ id: "myfakeid", title: "my fake todo", completed: false })
+      addTodo({
+        id: Date.now().toString(36) + Math.random().toString(36),
+        title: value,
+        completed: false,
+      })
     );
-  }
+
+    setValue("");
+  };
 
   return (
     <div className="App">
-      TODO App
+      <form onSubmit={submit}>
+        <input
+          type="text"
+          placeholder="Add task"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+        />
+      </form>
+
       <div>
-        <button onClick={fakeAdd}>ADD TODO</button>
         {todos.map((todo) => {
           return (
             <Todo

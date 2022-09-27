@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { RootState } from '../../store/store';
 import { Todo } from '../../types/types';
-import { getTodos, postTodo } from '../../utils/todoUtils';
+import { deleteTodoAPI, getTodosAPI, postTodoAPI, updateTodoAPI } from '../../utils/todoUtils';
 
 export interface TodosState {
     todos: Todo[];
@@ -17,7 +17,7 @@ const initialState: TodosState = {
 export const fetchAllTodos = createAsyncThunk(
   'todos/fetchTodos',
   async () => {
-    return getTodos()
+    return getTodosAPI()
   }
 );
 
@@ -27,22 +27,35 @@ export const todoSlice = createSlice({
   initialState,
   reducers: {
     addTodo: (state, action)=>{
-        const newTodo = {
-            id: action.payload.id,
-            title: action.payload.title,
-            completed: action.payload.completed
+      let newTodo = {
+          id: action.payload.id,
+          title: action.payload.title,
+          completed: action.payload.completed
         }
-        postTodo(newTodo)
+        postTodoAPI(newTodo)
         state.todos.push(newTodo);
     },
     updateTitleTodo: (state, action ) => {
+      let newTodo = {
+        id: action.payload.id,
+        title: action.payload.title,
+        completed: action.payload.completed
+      }
       state.todos = state.todos.map((todo) => todo.id === action.payload.id ? {...todo, title: action.payload.title} : todo)
+      updateTodoAPI(newTodo)
     },
     updateCompleteTodo: (state, action) => {
+      let newTodo = {
+        id: action.payload.id,
+        title: action.payload.title,
+        completed: action.payload.completed
+      }
       state.todos = state.todos.map((todo) => todo.id === action.payload ? {...todo, completed: !todo.completed} : todo)
+      updateTodoAPI(newTodo)
     },
     removeTodo: (state, action)=>{
       state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+      deleteTodoAPI(action.payload)
     },
   },
   extraReducers(builder) {

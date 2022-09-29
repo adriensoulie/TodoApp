@@ -1,4 +1,3 @@
-import React from "react";
 import { Todo } from "../types/types";
 
 interface Props {
@@ -18,19 +17,19 @@ export default function Progress({ total, todos }: Props) {
     }
   });
 
-  const containerStyles = {
-    height: 20,
+  const containerStyle = {
+    height: 15,
     width: "100%",
-    backgroundColor: "#e0e0de",
+    backgroundColor: "#3B3B3B",
     borderRadius: 50,
-    margin: 50,
   };
 
-  const fillerStyles = {
+  const fillerStyle = {
     height: "100%",
     width: `${calculatePurcent(total, todosCompleted)}%`,
-    backgroundColor: "blue",
+    backgroundColor: "#FFF",
     borderRadius: "inherit",
+    transition: "width 0.4s ease-in-out",
   };
 
   const barStyle = {
@@ -40,14 +39,25 @@ export default function Progress({ total, todos }: Props) {
   };
 
   return (
-    <div style={{ backgroundColor: "red" }}>
-      Progress
-      <div>{todosCompleted} completed</div>
-      <div style={containerStyles}>
-        <div style={fillerStyles}>
+    <div
+      style={{
+        backgroundColor: "#E07C7C",
+        padding: "20px",
+        textAlign: "left",
+        borderRadius: "20px",
+      }}
+    >
+      <p style={{ color: "white", fontWeight: "bold", fontSize: "28px" }}>
+        Progress
+      </p>
+      <div style={containerStyle}>
+        <div style={fillerStyle}>
           <span style={barStyle}></span>
         </div>
       </div>
+      <p style={{ color: "#EBB9B8", fontSize: "16px", fontWeight: "400" }}>
+        {todosCompleted} completed
+      </p>
     </div>
   );
 }

@@ -48,17 +48,20 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ width: "50%", backgroundColor: "#F5F5F5" }}>
       <Progress total={todos.length} todos={todos} />
-      <form onSubmit={submit}>
-        <input
-          type="text"
-          placeholder="Add task"
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
-        />
-      </form>
-      <Select onChange={selectChange} options={selectOptions} />
+      <div
+        style={{
+          display: "flex",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <p style={{ fontSize: "24px" }}>Tasks</p>
+        <Select onChange={selectChange} options={selectOptions} />
+      </div>
 
       <div>
         {selected === "all" &&
@@ -99,6 +102,27 @@ function App() {
             }
           })}
       </div>
+      <form onSubmit={submit}>
+        <input
+          type="text"
+          placeholder="Add task"
+          value={value}
+          onChange={(event) => setValue(event.target.value)}
+          style={{
+            border: "0px solid transparent",
+            outline: "none",
+            padding: "18px",
+            margin: "5px",
+            width: "-webkit-fill-available",
+            borderRadius: "999px",
+            backgroundColor: "#fff",
+            marginLeft: "20px",
+            marginRight: "20px",
+            marginTop: "8px",
+            marginBottom: "12px",
+          }}
+        />
+      </form>
     </div>
   );
 }

@@ -8,7 +8,10 @@ interface Props {
 export default function Select({ options, onChange }: Props) {
   return (
     <div>
-      <select onChange={onChange}>
+      <select
+        onChange={onChange}
+        style={{ borderRadius: "10px", padding: "10px" }}
+      >
         {options.map((option) => {
           return <option value={option.value}>{option.text}</option>;
         })}

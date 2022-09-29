@@ -14,7 +14,6 @@ interface Props {
 }
 
 export default function Todo({ id, title, completed }: Props) {
-  console.log(completed);
   const [showPopOver, setShowPopOver] = useState(false);
   const [activateEdit, setActivateEdit] = useState(false);
   const [value, setValue] = useState("");

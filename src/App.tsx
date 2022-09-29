@@ -48,81 +48,99 @@ function App() {
   };
 
   return (
-    <div className="App" style={{ width: "50%", backgroundColor: "#F5F5F5" }}>
-      <Progress total={todos.length} todos={todos} />
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        padding: "40px",
+        backgroundColor: "#E5E5E5",
+      }}
+    >
       <div
+        className="App"
         style={{
-          display: "flex",
-          paddingLeft: "20px",
-          paddingRight: "20px",
-          justifyContent: "space-between",
-          alignItems: "center",
+          width: "50%",
+          backgroundColor: "#F5F5F5",
+          borderRadius: "20px",
+          padding: "100px",
         }}
       >
-        <p style={{ fontSize: "24px" }}>Tasks</p>
-        <Select onChange={selectChange} options={selectOptions} />
-      </div>
-
-      <div>
-        {selected === "all" &&
-          todos.map((todo) => {
-            return (
-              <Todo
-                key={todo.id}
-                id={todo.id}
-                title={todo.title}
-                completed={todo.completed}
-              />
-            );
-          })}
-        {selected === "done" &&
-          todos.map((todo) => {
-            if (todo.completed) {
-              return (
-                <Todo
-                  key={todo.id}
-                  id={todo.id}
-                  title={todo.title}
-                  completed={todo.completed}
-                />
-              );
-            }
-          })}
-        {selected === "undone" &&
-          todos.map((todo) => {
-            if (!todo.completed) {
-              return (
-                <Todo
-                  key={todo.id}
-                  id={todo.id}
-                  title={todo.title}
-                  completed={todo.completed}
-                />
-              );
-            }
-          })}
-      </div>
-      <form onSubmit={submit}>
-        <input
-          type="text"
-          placeholder="Add task"
-          value={value}
-          onChange={(event) => setValue(event.target.value)}
+        <Progress total={todos.length} todos={todos} />
+        <div
           style={{
-            border: "0px solid transparent",
-            outline: "none",
-            padding: "18px",
-            margin: "5px",
-            width: "-webkit-fill-available",
-            borderRadius: "999px",
-            backgroundColor: "#fff",
-            marginLeft: "20px",
-            marginRight: "20px",
-            marginTop: "8px",
-            marginBottom: "12px",
+            display: "flex",
+            paddingLeft: "20px",
+            paddingRight: "20px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            marginTop: "30px",
           }}
-        />
-      </form>
+        >
+          <p style={{ fontSize: "24px" }}>Tasks</p>
+          <Select onChange={selectChange} options={selectOptions} />
+        </div>
+
+        <div>
+          {selected === "all" &&
+            todos.map((todo) => {
+              return (
+                <Todo
+                  key={todo.id}
+                  id={todo.id}
+                  title={todo.title}
+                  completed={todo.completed}
+                />
+              );
+            })}
+          {selected === "done" &&
+            todos.map((todo) => {
+              if (todo.completed) {
+                return (
+                  <Todo
+                    key={todo.id}
+                    id={todo.id}
+                    title={todo.title}
+                    completed={todo.completed}
+                  />
+                );
+              }
+            })}
+          {selected === "undone" &&
+            todos.map((todo) => {
+              if (!todo.completed) {
+                return (
+                  <Todo
+                    key={todo.id}
+                    id={todo.id}
+                    title={todo.title}
+                    completed={todo.completed}
+                  />
+                );
+              }
+            })}
+          <form onSubmit={submit}>
+            <input
+              type="text"
+              placeholder="Add task"
+              value={value}
+              onChange={(event) => setValue(event.target.value)}
+              style={{
+                border: "0px solid transparent",
+                outline: "none",
+                padding: "18px",
+                margin: "5px",
+                width: "-webkit-fill-available",
+                borderRadius: "999px",
+                backgroundColor: "#fff",
+                marginLeft: "20px",
+                marginRight: "20px",
+                marginTop: "4px",
+                marginBottom: "12px",
+              }}
+            />
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

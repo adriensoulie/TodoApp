@@ -38,16 +38,22 @@ export default function Progress({ total, todos }: Props) {
     fontWeight: "bold",
   };
 
+  const wrapperStyle = {
+    backgroundColor: "#E07C7C",
+    padding: "20px",
+    borderRadius: "20px",
+  };
+
   return (
-    <div
-      style={{
-        backgroundColor: "#E07C7C",
-        padding: "20px",
-        textAlign: "left",
-        borderRadius: "20px",
-      }}
-    >
-      <p style={{ color: "white", fontWeight: "bold", fontSize: "28px" }}>
+    <div style={wrapperStyle}>
+      <p
+        style={{
+          color: "white",
+          fontWeight: "bold",
+          fontSize: "28px",
+          textAlign: "left",
+        }}
+      >
         Progress
       </p>
       <div style={containerStyle}>
@@ -55,7 +61,14 @@ export default function Progress({ total, todos }: Props) {
           <span style={barStyle}></span>
         </div>
       </div>
-      <p style={{ color: "#EBB9B8", fontSize: "16px", fontWeight: "400" }}>
+      <p
+        style={{
+          color: "#EBB9B8",
+          fontSize: "16px",
+          fontWeight: "400",
+          textAlign: "left",
+        }}
+      >
         {todosCompleted} completed
       </p>
     </div>

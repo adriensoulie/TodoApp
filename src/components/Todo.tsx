@@ -132,7 +132,7 @@ export default function Todo({ id, title, completed }: Props) {
                   paddingBottom: "10px",
                   position: "absolute",
                   right: "10px",
-                  bottom: "13px",
+                  bottom: "10px",
                   paddingLeft: "17px",
                   cursor: "pointer",
                   textAlign: "center",

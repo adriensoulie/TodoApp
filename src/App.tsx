@@ -57,12 +57,10 @@ function App() {
       }}
     >
       <div
-        className="App"
+        className="container"
         style={{
-          width: "50%",
           backgroundColor: "#F5F5F5",
           borderRadius: "20px",
-          padding: "100px",
         }}
       >
         <Progress total={todos.length} todos={todos} />

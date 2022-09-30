@@ -185,13 +185,13 @@ export default function Todo({ id, title, completed }: Props) {
           }}
         >
           <p
-            style={{ paddingLeft: "20px" }}
+            style={{ paddingLeft: "20px", cursor: "pointer" }}
             onClick={() => setActivateEdit(true)}
           >
             Edit
           </p>
           <p
-            style={{ paddingLeft: "20px", color: "#E07C7C" }}
+            style={{ paddingLeft: "20px", color: "#E07C7C", cursor: "pointer" }}
             onClick={handleRemove}
           >
             Delete

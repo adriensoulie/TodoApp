@@ -165,8 +165,9 @@ export default function Todo({ id, title, completed }: Props) {
             alignItems: "center",
             cursor: "pointer",
           }}
+          onClick={() => setShowPopOver(!showPopOver)}
         >
-          <DotsIcon onClick={() => setShowPopOver(!showPopOver)} />
+          <DotsIcon />
         </div>
       )}
       {showPopOver && !activateEdit && (

@@ -47,33 +47,26 @@ function App() {
     setValue("");
   };
 
+  const inputStyle = {
+    border: "0px solid transparent",
+    outline: "none",
+    padding: "18px",
+    margin: "5px",
+    width: "-webkit-fill-available",
+    borderRadius: "999px",
+    backgroundColor: "#fff",
+    marginLeft: "20px",
+    marginRight: "20px",
+    marginTop: "4px",
+    marginBottom: "12px",
+    fontSize: "14px",
+  };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        padding: "40px",
-        backgroundColor: "#E5E5E5",
-      }}
-    >
-      <div
-        className="container"
-        style={{
-          backgroundColor: "#F5F5F5",
-          borderRadius: "20px",
-        }}
-      >
+    <div className="wrapper">
+      <div className="container">
         <Progress total={todos.length} todos={todos} />
-        <div
-          style={{
-            display: "flex",
-            paddingLeft: "20px",
-            paddingRight: "20px",
-            justifyContent: "space-between",
-            alignItems: "center",
-            marginTop: "30px",
-          }}
-        >
+        <div className="tasks-container">
           <p style={{ fontSize: "24px" }}>Tasks</p>
           <Select onChange={selectChange} options={selectOptions} />
         </div>
@@ -122,19 +115,7 @@ function App() {
               placeholder="Add task"
               value={value}
               onChange={(event) => setValue(event.target.value)}
-              style={{
-                border: "0px solid transparent",
-                outline: "none",
-                padding: "18px",
-                margin: "5px",
-                width: "-webkit-fill-available",
-                borderRadius: "999px",
-                backgroundColor: "#fff",
-                marginLeft: "20px",
-                marginRight: "20px",
-                marginTop: "4px",
-                marginBottom: "12px",
-              }}
+              style={inputStyle}
             />
           </form>
         </div>

@@ -1,0 +1,90 @@
+.todo-wrapper {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 999px;
+    justify-content: space-between;
+    position: relative;
+}
+
+.todo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todo-checked {
+    background-color: #585292;
+    border-radius: 6px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #585292;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.todo-unchecked {
+    background-color: #fff;
+    border-radius: 6px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #585292;
+    margin: 15px;
+    cursor: pointer;
+}
+
+.todo-input {
+    border: 0px solid transparent;
+    outline: none;
+    padding: 10px;
+    margin: 5px;
+    flex-grow: 4;
+    min-width: 100%;
+}
+
+.button-save {
+    background-color: #585292;
+    border-radius: 999px;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding-left: 17px;
+    cursor: pointer;
+    text-align: center;
+    padding-right: 17px;
+    border: 0px solid transparent;
+    color: white;
+}
+
+.dots-container {
+    padding: 7px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.pop-over {
+    display: flex;
+    text-align: left;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    right: 40px;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 110px;
+    z-index: 66;
+}

@@ -8,6 +8,7 @@ import {
 import { ReactComponent as CheckedIcon } from "../assets/Vector.svg";
 import { ReactComponent as DotsIcon } from "../assets/Dots.svg";
 import { useState } from "react";
+import "./Todo.css";
 
 interface Props {
   id: string;
@@ -50,98 +51,28 @@ export default function Todo({ id, title, completed }: Props) {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        backgroundColor: "#fff",
-        marginLeft: "20px",
-        marginRight: "20px",
-        marginTop: "12px",
-        marginBottom: "12px",
-        borderRadius: "999px",
-        justifyContent: "space-between",
-        position: "relative",
-      }}
-    >
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+    <div className="todo-wrapper">
+      <div className="todo-container">
         {completed ? (
-          <div
-            onClick={handleComplete}
-            style={{
-              backgroundColor: "#585292",
-              borderRadius: "6px",
-              padding: "4px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "2px solid #585292",
-              margin: "15px",
-              cursor: "pointer",
-            }}
-          >
+          <div className="todo-checked" onClick={handleComplete}>
             <CheckedIcon height={12} width={12} />
           </div>
         ) : (
-          <div
-            onClick={handleComplete}
-            style={{
-              backgroundColor: "#fff",
-              borderRadius: "6px",
-              padding: "4px",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              border: "2px solid #585292",
-              margin: "15px",
-              cursor: "pointer",
-            }}
-          >
+          <div onClick={handleComplete} className="todo-unchecked">
             <CheckedIcon height={12} width={12} />
           </div>
         )}
         {activateEdit ? (
           <form onSubmit={submit}>
             <input
+              className="todo-input"
               type="text"
-              style={{
-                border: "0px solid transparent",
-                outline: "none",
-                padding: "10px",
-                margin: "5px",
-                flexGrow: "4",
-                minWidth: "100%",
-              }}
               placeholder={title}
               value={value}
               onChange={(event) => setValue(event.target.value)}
             />
             {showPopOver && activateEdit && (
-              <button
-                style={{
-                  backgroundColor: "#585292",
-                  borderRadius: "999px",
-                  fontSize: "14px",
-                  paddingTop: "10px",
-                  paddingBottom: "10px",
-                  position: "absolute",
-                  right: "10px",
-                  bottom: "10px",
-                  paddingLeft: "17px",
-                  cursor: "pointer",
-                  textAlign: "center",
-                  paddingRight: "17px",
-                  border: "0px solid transparent",
-                  color: "white",
-                }}
-                type="submit"
-              >
+              <button className="button-save" type="submit">
                 Save
               </button>
             )}
@@ -157,33 +88,14 @@ export default function Todo({ id, title, completed }: Props) {
 
       {!activateEdit && (
         <div
-          style={{
-            padding: "7px",
-            marginRight: "20px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            cursor: "pointer",
-          }}
+          className="dots-container"
           onClick={() => setShowPopOver(!showPopOver)}
         >
           <DotsIcon />
         </div>
       )}
       {showPopOver && !activateEdit && (
-        <div
-          style={{
-            display: "flex",
-            textAlign: "left",
-            flexDirection: "column",
-            backgroundColor: "#fff",
-            position: "absolute",
-            right: "40px",
-            boxShadow: "0px 0px 8px rgba(0, 0, 0, 0.1);",
-            borderRadius: "10px",
-            width: "110px",
-          }}
-        >
+        <div className="pop-over">
           <p
             style={{ paddingLeft: "20px", cursor: "pointer" }}
             onClick={() => setActivateEdit(true)}

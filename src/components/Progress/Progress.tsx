@@ -26,24 +26,12 @@ export default function Progress({ total, todos }: Props) {
     transition: "width 0.4s ease-in-out",
   };
 
-  const barStyle = {
-    padding: 5,
-    color: "white",
-    fontWeight: "bold",
-  };
-
-  const wrapperStyle = {
-    backgroundColor: "#E07C7C",
-    padding: "20px",
-    borderRadius: "20px",
-  };
-
   return (
     <div className="progress-wrapper">
       <p className="progress-title">Progress</p>
       <div className="progress-container">
         <div style={fillerStyle}>
-          <span style={barStyle}></span>
+          <span className="progress-bar"></span>
         </div>
       </div>
       <p className="progress-completed">{todosCompleted} completed</p>

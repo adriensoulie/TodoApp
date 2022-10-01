@@ -24,3 +24,9 @@
     font-weight: 400;
     text-align: left;
 }
+
+.progress-bar {
+    padding: 5;
+    color: white;
+    font-weight: bold;
+}

@@ -1,4 +1,5 @@
-import { Todo } from "../types/types";
+import { Todo } from "../../types/types";
+import "./Progress.css";
 
 interface Props {
   total: number;
@@ -16,13 +17,6 @@ export default function Progress({ total, todos }: Props) {
       todosCompleted++;
     }
   });
-
-  const containerStyle = {
-    height: 15,
-    width: "100%",
-    backgroundColor: "#3B3B3B",
-    borderRadius: 50,
-  };
 
   const fillerStyle = {
     height: "100%",
@@ -45,32 +39,14 @@ export default function Progress({ total, todos }: Props) {
   };
 
   return (
-    <div style={wrapperStyle}>
-      <p
-        style={{
-          color: "white",
-          fontWeight: "bold",
-          fontSize: "28px",
-          textAlign: "left",
-        }}
-      >
-        Progress
-      </p>
-      <div style={containerStyle}>
+    <div className="progress-wrapper">
+      <p className="progress-title">Progress</p>
+      <div className="progress-container">
         <div style={fillerStyle}>
           <span style={barStyle}></span>
         </div>
       </div>
-      <p
-        style={{
-          color: "#EBB9B8",
-          fontSize: "16px",
-          fontWeight: "400",
-          textAlign: "left",
-        }}
-      >
-        {todosCompleted} completed
-      </p>
+      <p className="progress-completed">{todosCompleted} completed</p>
     </div>
   );
 }

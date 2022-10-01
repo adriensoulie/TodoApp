@@ -1,13 +1,13 @@
 import React, { useEffect } from "react";
 import { RootState } from "./store/store";
 import "./App.css";
-import Todo from "./components/Todo";
+import Todo from "./components/Todo/Todo";
 import { useDispatch, useSelector } from "react-redux";
 import { addTodo, fetchAllTodos } from "./reducers/todos/todoSlice";
 import { AppDispatch } from "./store/store";
 import { useState } from "react";
-import Select from "./components/Select";
-import Progress from "./components/Progress";
+import Select from "./components/Select/Select";
+import Progress from "./components/Progress/Progress";
 
 function App() {
   const dispatch = useDispatch<AppDispatch>();

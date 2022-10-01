@@ -1,12 +1,12 @@
 import { useDispatch } from "react-redux";
-import { AppDispatch } from "../store/store";
+import { AppDispatch } from "../../store/store";
 import {
   removeTodo,
   updateCompleteTodo,
   updateTitleTodo,
-} from "../reducers/todos/todoSlice";
-import { ReactComponent as CheckedIcon } from "../assets/Vector.svg";
-import { ReactComponent as DotsIcon } from "../assets/Dots.svg";
+} from "../../reducers/todos/todoSlice";
+import { ReactComponent as CheckedIcon } from "../../assets/Vector.svg";
+import { ReactComponent as DotsIcon } from "../../assets/Dots.svg";
 import { useState } from "react";
 import "./Todo.css";
 
